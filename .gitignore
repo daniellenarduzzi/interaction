@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+<<<<<<< HEAD
+=======
+interface.json
+notarization.sol
+>>>>>>> release/1.0
