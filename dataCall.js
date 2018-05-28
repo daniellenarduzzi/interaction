@@ -73,8 +73,8 @@ contract NotarizeTx {
   }
 }`
 
-const _id = "sksj3642ams6odnsoc32549102xfasf0"
-const _hash = "sksj3642ams6odnsoc32549102xfasf1"
+const _id = "0123abc5460123abc5460123abc54601"
+const _hash = "0123abc5460123abc5460123abc54601"
 
 var compile = (contract) => solc.compile(contract)
 
