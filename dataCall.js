@@ -72,9 +72,8 @@ contract NotarizeTx {
     }
   }
 }`
-
-const _id = "0123abc5460123abc5460123abc54601"
-const _hash = "0123abc5460123abc5460123abc54601"
+const _id = web3.utils.asciiToHex("00000000000000000")
+const _hash = web3.utils.asciiToHex("00000000000000000")
 
 var compile = (contract) => solc.compile(contract)
 
@@ -86,17 +85,11 @@ function getData (contract) {
 }
 
 var NotaryInstance = new web3.eth.Contract(getData(contract).abi , "0x66c150726119f0bac6d162dd0fe096a90c848a1a")
-//call a BSG_NODE:
-NotaryInstance.methods.BSG_NODE().call({from:'0xc74525acef42b38730310d04c78a836cc08e0a67'}, function(error, result){
-console.log('error: ' + error);
-console.log(result);
-})
+// call a BSG_NODE:
+NotaryInstance.methods.BSG_NODE().call().then(console.log)
 //uso de la fcn updateStatus
 NotaryInstance.methods.updateStatus("entregado", _id, _hash)
   .send({
-    from:'0xc74525acef42b38730310d04c78a836cc08e0a67',
-    gas: 500000000,
-  }, function(error, result){
-    console.log('error: ' + error);
-    console.log(result);
-  })
+    from:'0x44751576b07eee07de3d8d5bfb9c8dd77add1744',
+    gasLimit: 4700000,
+  }).then(console.log)
